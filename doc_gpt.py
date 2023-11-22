@@ -103,8 +103,10 @@ if st.session_state.openai_key:
         st.session_state.documents = None
 
     if "llm" not in st.session_state:
-        st.session_state.llm = "gpt-3.5-turbo"
+        st.session_state.llm = "gpt-3.5-turbo-1106"
 
+    if 'reset' not in st.session_state:
+        st.session_state.reset = None
 
 
 
@@ -669,7 +671,10 @@ if st.session_state.openai_key:
             st.session_state.messages.append(message)
         
 
-    # if st.button("Reset - Erase all memory and history"):
-
-    #     if st.button("Are you sure?"):
-    #         hard_reset()
+    if st.button("Reset - Erase all memory and history"):
+        st.session_state.reset = True
+    if st.session_state.reset == True:
+        if st.button("Are you sure?"):
+        
+            hard_reset()
+            st.session_state.reset = None
