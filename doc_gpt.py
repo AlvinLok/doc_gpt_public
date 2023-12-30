@@ -103,7 +103,7 @@ if st.session_state.openai_key:
         st.session_state.documents = None
 
     if "llm" not in st.session_state:
-        st.session_state.llm = "gpt-3.5-turbo-1106"
+        st.session_state.llm = "gpt-3.5-turbo"
 
     if 'reset' not in st.session_state:
         st.session_state.reset = None
